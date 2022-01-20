@@ -7,7 +7,7 @@ deploy:
   script: lein jar
   on:
     tags: true
-    condition: $TRAVIS_TAG =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
+    condition: tag =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
 # Workaround for https://github.com/travis-ci/travis-ci/issues/4691
 jdk:
   - openjdk8
