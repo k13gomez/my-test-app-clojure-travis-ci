@@ -6,7 +6,7 @@ deploy:
   provider: script
   script: lein jar
   on:
-    condition: tag =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
+    tags: true
 # Workaround for https://github.com/travis-ci/travis-ci/issues/4691
 jdk:
   - openjdk8
