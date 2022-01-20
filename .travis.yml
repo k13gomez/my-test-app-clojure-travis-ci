@@ -9,4 +9,4 @@ jobs:
   include:
     - stage: ":ship: it to clojars"
       script: lein jar
-      if: tag =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
+      if: fork = false AND tag =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
