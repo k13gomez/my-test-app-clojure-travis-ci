@@ -2,11 +2,11 @@ language: clojure
 lein: 2.7.1
 script:
   - lein test
-deploy:
-  provider: script
-  script: lein jar
-  on:
-    tags: true
-# Workaround for https://github.com/travis-ci/travis-ci/issues/4691
 jdk:
   - openjdk8
+
+jobs:
+  include:
+    - stage: ":ship: it to clojars"
+      script: lein jar
+      if: tag =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
