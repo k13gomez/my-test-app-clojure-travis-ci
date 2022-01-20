@@ -1,12 +1,16 @@
+os: linux
+dist: xenial
 language: clojure
 lein: 2.7.1
-script:
-  - lein test
 jdk:
   - openjdk8
-
+stages:
+  - test
+  - deploy
 jobs:
   include:
-    - stage: ":ship: it to clojars"
+    - stage: "test"
+      script: lein test
+    - stage: "deploy"
       script: lein jar
       if: fork = false AND tag =~ ^(\d+)\.(\d+)\.(\d+)(-.+)?$
